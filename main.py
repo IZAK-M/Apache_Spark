@@ -11,3 +11,7 @@ print(my_spark)
 ventes_df = my_spark.read.csv("ventes.csv", header=True, inferSchema=True)
 
 ventes_df.show()
+
+
+# Nettoyage des données :
+ventes_df.columns

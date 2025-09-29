@@ -1,2 +1,3 @@
 pyspark
 openjdk@17
+findspark
