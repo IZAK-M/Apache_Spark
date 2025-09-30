@@ -1,3 +1,5 @@
 pyspark
 openjdk@17
 findspark
+dbt-core
+dbt-postgres
