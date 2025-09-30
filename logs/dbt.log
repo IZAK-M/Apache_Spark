@@ -1,0 +1,31 @@
+[0m14:30:34.138560 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111cd7cb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11348b9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11348bb10>]}
+
+
+============================== 14:30:34.141102 | b2db1b61-91ed-4db7-9886-5a6f273a1374 ==============================
+[0m14:30:34.141102 [info ] [MainThread]: Running with dbt=1.10.13
+[0m14:30:34.141364 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'fail_fast': 'False', 'indirect_selection': 'eager', 'debug': 'False', 'use_experimental_parser': 'False', 'version_check': 'True', 'introspect': 'True', 'target_path': 'None', 'log_cache_events': 'False', 'cache_selected_only': 'False', 'invocation_command': 'dbt init', 'use_colors': 'True', 'log_path': 'logs', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'profiles_dir': '/Users/izakmohamed/.dbt', 'static_parser': 'True', 'no_print': 'None', 'empty': 'None', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'quiet': 'False'}
+[0m14:30:34.151665 [info ] [MainThread]: Creating dbt configuration folder at /Users/izakmohamed/.dbt
+[0m14:31:28.898024 [debug] [MainThread]: Starter project path: /Users/izakmohamed/Documents/DEV & CODE/SIMPLON 2025/Formation Intensif/BRIEF/BRIEF 08 Apache Spark/Apache_Spark/env_pyspark/lib/python3.13/site-packages/dbt/include/starter_project
+[0m14:31:28.912988 [info ] [MainThread]: 
+Your new dbt project "postgres" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:31:28.913977 [info ] [MainThread]: Setting up your profile.
+[0m14:34:55.808958 [info ] [MainThread]: Profile postgres written to /Users/izakmohamed/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m14:34:55.819373 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 261.71353, "process_in_blocks": "0", "process_kernel_time": 0.167465, "process_mem_max_rss": "105807872", "process_out_blocks": "0", "process_user_time": 0.655224}
+[0m14:34:55.821878 [debug] [MainThread]: Command `dbt init` succeeded at 14:34:55.821440 after 261.72 seconds
+[0m14:34:55.823858 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11352b5c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111dba9f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113552140>]}
+[0m14:34:55.824819 [debug] [MainThread]: Flushing usage events
+[0m14:34:56.326208 [debug] [MainThread]: An error was encountered while trying to flush usage events
