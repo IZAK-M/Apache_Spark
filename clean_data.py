@@ -36,30 +36,27 @@ print("Colonnes de type string :", string_cols)
 for col_name in string_cols:
     df = df.withColumn(col_name, lower(trim(col(col_name))))
 
-# Correction des âges négatifs (si la colonne existe)
+# Correction des âges négatifs et des prix négatifs
 if "client_age" in df.columns:
     df = df.withColumn("client_age", abs(col("client_age")))
 
+if "prix_catalogue" in df.columns:
+    df = df.withColumn("prix_catalogue", abs(col("prix_catalogue")))
+
 # Robustifier quantite : normaliser, remplacer virgule décimale, cast en double
-if "quantite" in df.columns:
-    df = df.withColumn("quantite_norm", trim(col("quantite")))
-    df = df.withColumn("quantite_norm", regexp_replace(col("quantite_norm"), ",", "."))
-    df = df.withColumn(
-        "quantite_double",
-        when((col("quantite_norm") == "") | col("quantite_norm").isNull(), None)
-        .otherwise(col("quantite_norm").cast("double"))
-    ).drop("quantite_norm")
-else:
-    df = df.withColumn("quantite_double", lit(None).cast("double"))
+df = df.withColumn(
+    "quantite",
+    when((trim(col("quantite")) == "") | col("quantite").isNull(), None)
+    .otherwise(
+        regexp_replace(trim(col("quantite")), ",", ".")
+    )
+)
 
 # S'assurer que prix_catalogue soit en double
-if "prix_catalogue" in df.columns:
-    df = df.withColumn("prix_catalogue_double", col("prix_catalogue").cast("double"))
-else:
-    df = df.withColumn("prix_catalogue_double", lit(None).cast("double"))
+df = df.withColumn("prix_catalogue", col("prix_catalogue").cast("double"))
 
 # Calcul du montant_total 
-df = df.withColumn("montant_total", col("prix_catalogue_double") * col("quantite_double"))
+df = df.withColumn("montant_total", col("prix_catalogue") * col("quantite"))
 
 # Conversion de la colonne date (gestion si colonne nommée date ou date_vente)
 if "date" in df.columns and "date_vente" not in df.columns:
@@ -98,15 +95,15 @@ if "date_vente" in df.columns:
         (col("date_vente") >= date_min) &
         (col("date_vente") <= date_max) &
         condition &
-        col("quantite_double").isNotNull() &
-        col("prix_catalogue_double").isNotNull()
+        col("quantite").isNotNull() &
+        col("prix_catalogue").isNotNull()
     ).dropna(how="any")
 else:
     print("ATTENTION: colonne date_vente introuvable. Filtre de date ignoré.")
     df_cleaned = df.filter(
         condition &
-        col("quantite_double").isNotNull() &
-        col("prix_catalogue_double").isNotNull()
+        col("quantite").isNotNull() &
+        col("prix_catalogue").isNotNull()
     ).dropna(how="any")
 
 print(f"Nombre de lignes après nettoyage : {df_cleaned.count()}")
