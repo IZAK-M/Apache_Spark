@@ -1,5 +1,6 @@
 import os
 import shutil
+from colorama import Fore, Style
 
 # Ajuste JAVA_HOME pour macOS (M1 / Homebrew OpenJDK 17)
 os.environ["JAVA_HOME"] = "/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home"
@@ -146,9 +147,13 @@ def save_single_csv(df, output_path):
 clean_csv = os.path.join(BASE_DIR, "data", "ventes_clean.csv")
 rejetees_csv = os.path.join(BASE_DIR, "data", "ventes_rejetees.csv")
 
+# Afficher le nombre de lignes nettoyées en vert
+print(Fore.GREEN + f"🧼 {df_cleaned.count()} lignes nettoyées prêtes à être enregistrées." + Style.RESET_ALL)
 save_single_csv(df_cleaned, clean_csv)
 print(f"✅ Données nettoyées enregistrées dans {clean_csv}")
 
+# Afficher le nombre de lignes rejetées en rouge
+print(Fore.RED + f"🙅‍♂️ {lignes_rejetees.count()} lignes rejetées prêtes à être enregistrées." + Style.RESET_ALL)
 save_single_csv(lignes_rejetees, rejetees_csv)
 print(f"⚠️ Lignes rejetées enregistrées dans {rejetees_csv}")
 
