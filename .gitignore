@@ -3,3 +3,4 @@ env_pyspark
 *.docx
 .DS_Store
 __pycache__
+.env

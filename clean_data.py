@@ -89,9 +89,10 @@ condition = lit(True)
 for col_name in cols_to_check:
     condition = condition & is_valid_string(col_name)
 
-# Application du filtre en tenant compte de l'existence de date_vente
+# Application des filres :
 if "date_vente" in df.columns:
     df_cleaned = df.filter(
+        (col("client_age")< 100) &
         (col("date_vente") >= date_min) &
         (col("date_vente") <= date_max) &
         condition &
@@ -105,6 +106,8 @@ else:
         col("quantite").isNotNull() &
         col("prix_catalogue").isNotNull()
     ).dropna(how="any")
+
+
 
 print(f"Nombre de lignes après nettoyage : {df_cleaned.count()}")
 print("\nÉchantillon des données nettoyées :")
