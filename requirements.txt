@@ -3,3 +3,6 @@ openjdk@17
 findspark
 dbt-core
 dbt-postgres
+pandas
+python-dotenv
+# RUN COMMAND: dbt deps
