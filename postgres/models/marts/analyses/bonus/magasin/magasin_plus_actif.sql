@@ -1,4 +1,4 @@
-# Quel magasin physique génère le plus de transactions ?
+-- Quel magasin physique génère le plus de transactions ?
 SELECT
   m.magasin_nom,
   COUNT(DISTINCT f.id_transaction) AS nb_transactions

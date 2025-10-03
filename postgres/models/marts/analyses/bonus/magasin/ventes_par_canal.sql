@@ -1,4 +1,4 @@
-# Quelle part de ventes vient des boutiques physiques vs de l’e-shop ?
+-- Quelle part de ventes vient des boutiques physiques vs de l’e-shop ?
 SELECT
   m.magasin_type,
   ROUND(SUM(f.montant_total)::numeric, 2) AS chiffre_affaires,
