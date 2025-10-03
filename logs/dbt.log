@@ -45,3 +45,19 @@ Runtime Error
 [0m10:58:42.316386 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105767ce0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1059c5910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105721bf0>]}
 [0m10:58:42.316529 [debug] [MainThread]: Flushing usage events
 [0m10:58:42.772619 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m09:16:24.608299 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110b27cb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11268f9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11268fb10>]}
+
+
+============================== 09:16:24.610992 | 305785d6-903b-4ef4-8410-502936c3f5f6 ==============================
+[0m09:16:24.610992 [info ] [MainThread]: Running with dbt=1.10.13
+[0m09:16:24.611259 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'profiles_dir': '/Users/izakmohamed/.dbt', 'target_path': 'None', 'invocation_command': 'dbt run --select analyses', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'warn_error': 'None', 'static_parser': 'True', 'printer_width': '80', 'version_check': 'True', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'cache_selected_only': 'False', 'introspect': 'True', 'empty': 'False', 'no_print': 'None', 'write_json': 'True', 'debug': 'False', 'log_format': 'default', 'log_path': 'logs', 'send_anonymous_usage_stats': 'True', 'use_experimental_parser': 'False', 'quiet': 'False'}
+[0m09:16:24.611529 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/izakmohamed/Documents/DEV & CODE/SIMPLON 2025/Formation Intensif/BRIEF/BRIEF 08 Apache Spark/Apache_Spark/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m09:16:24.613014 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.042481624, "process_in_blocks": "0", "process_kernel_time": 0.100432, "process_mem_max_rss": "104677376", "process_out_blocks": "0", "process_user_time": 0.500116}
+[0m09:16:24.613215 [debug] [MainThread]: Command `dbt run` failed at 09:16:24.613180 after 0.04 seconds
+[0m09:16:24.613346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112567ce0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1126c9910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112521ae0>]}
+[0m09:16:24.613476 [debug] [MainThread]: Flushing usage events
+[0m09:16:25.098974 [debug] [MainThread]: An error was encountered while trying to flush usage events
