@@ -1,0 +1,8 @@
+SELECT
+  p.produit_categorie,
+  SUM(f.quantite) AS total_quantite
+FROM {{ ref('fact_ventes') }} AS f
+LEFT JOIN {{ ref('dim_produits') }} AS p
+  ON f.produit_id = p.produit_id
+GROUP BY p.produit_categorie
+ORDER BY total_quantite DESC
